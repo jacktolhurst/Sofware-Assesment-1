@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 15%;
+    height: 10%;
     display: flex;
     padding-right: 20px;
     opacity: 0.8;
@@ -17,7 +17,6 @@
 .header:hover {
     opacity: 1;
     box-shadow: -5px 4px 10px rgba(0, 0, 0, 0.5);
-    height: 16%;
 }
 
 #logo{
@@ -31,7 +30,6 @@
 #logo:hover{
     background-color: #12756d;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-
 }
 
 #logoHref{
@@ -77,11 +75,17 @@
 
 .mainText{
     margin-top: 10em;
+    display: flex;
+    justify-content: left;
+}
+
+.fanContent {
+    display: flex;
 }
 
 .fanImage{
+    width: 500px;
     height: auto;
-    width: 50%;
     border-style: solid;
     border-radius: 20px;
     border-color: black;
@@ -93,4 +97,18 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     border-color: rgb(71, 71, 71);
     background-color: rgb(204, 204, 204);
+}
+
+.fanDetail{
+    margin-left: 12em;
+}
+
+.mainTextH1{
+    font-size: 80px;
+}
+
+.mainTextFanType{    
+    text-align: left;
+    font-size: 20px;
+    font-style: italic;
 }
