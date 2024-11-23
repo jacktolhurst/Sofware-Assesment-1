@@ -19,6 +19,9 @@ function appendData(data) {
   if(data[randNum].type == 1){
     newType = "Premium";
   }
+  else if(data[randNum].type == 2){
+    newType = "Deformed";
+  }
   else{
     newType = "Standard";
   }
@@ -29,32 +32,12 @@ function appendData(data) {
       <div class="fanDetail">
           <h1 class="mainTextH1">${data[randNum].name}</h1>
           <p class="mainTextFanType">${data[randNum].smallInfo}</p>
-          <p class="mainTextFanType">${newType}</p>
+          <p class="mainTextFanType" id="${newType}"=>${newType}</p>
           <p class="mainTextFanInfo">${data[randNum].description}</p>
+          <a href="${data[randNum].link}" target="_blank">Find The Fan</a>
       </div>
   </div>
   `;
-
-  // data.forEach(({ name, type, smallInfo, description, image} = rows) => {
-  //   var newType = "";
-  //   if(type == 1){
-  //     newType = "Premium";
-  //   }
-  //   else{
-  //     newType = "Standard";
-  //   }
-  // result += `
-  //     <div class="fanContent">
-  //         <img src="${image}" alt="Your internet wasn't a big fan" class="fanImage">
-  //         <div class="fanDetail">
-  //             <h1 class="mainTextH1">${name}</h1>
-  //             <p class="mainTextFanType">${smallInfo}</p>
-  //             <p class="mainTextFanType">${newType}</p>
-  //             <p class="mainTextFanInfo">${description}</p>
-  //         </div>
-  //     </div>
-  //     `;
-  // });
   document.querySelector(".mainText").innerHTML = result;
 }
 
