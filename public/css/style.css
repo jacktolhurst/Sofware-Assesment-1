@@ -40,19 +40,24 @@
     width: 7em;
 }
 
-.headerText{
-    margin-right: 10;
+.headerText, .headerLink{
+    margin-right: 10px;
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 1em;
+    padding: 0.5em;
     transition: 0.2s;
 }
 
 .headerText:hover{ 
     background-color: #12756d;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.headerLink{
+    text-decoration: none;
+    color: inherit;
 }
 
 #MILFDiv:hover::after{ 

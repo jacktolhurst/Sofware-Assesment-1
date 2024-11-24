@@ -14,6 +14,7 @@ fetch("/api/fans")
 
 function appendData(data) {
   var randNum = getRandomInt(data.length);
+  // var randNum = CalcRandomByDay(data.length);
 
   var newType = "";
   if(data[randNum].type == 1){
@@ -44,5 +45,15 @@ function appendData(data) {
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+
+// function CalcRandomByDay(max) {
+//   const today = new Date();
+//   const dateKey = today.toISOString().slice(0, 10);
+
+//   const seed = parseInt(dateKey.replace(/-/g, ''), 10); 
+//   const randomNumber = seed % max;
+  
+//   return randomNumber;
+// }
 
 window.onLoad = loadStuff;
