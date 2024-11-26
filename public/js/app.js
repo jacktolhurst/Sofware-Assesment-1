@@ -13,8 +13,8 @@ fetch("/api/fans")
 
 
 function appendData(data) {
-  var randNum = getRandomInt(data.length);
-  // var randNum = CalcRandomByDay(data.length);
+  // var randNum = getRandomInt(data.length);
+  var randNum = CalcRandomByDay(data.length);
 
   var newType = "";
   if(data[randNum].type == 1){
@@ -46,14 +46,23 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-// function CalcRandomByDay(max) {
-//   const today = new Date();
-//   const dateKey = today.toISOString().slice(0, 10);
+function CalcRandomByDay(max) {
+  const today = new Date();
+  const dateKey = today.toISOString().slice(0, 10);
 
-//   const seed = parseInt(dateKey.replace(/-/g, ''), 10); 
-//   const randomNumber = seed % max;
+  const seed = parseInt(dateKey.replace(/-/g, ''), 10); 
+  const randomNumber = seed % max;
   
-//   return randomNumber;
-// }
+  return randomNumber;
+}
+
+if ("serviceworker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceworker
+      .register("js/serviceworker.js")
+      .then((res) => console.log("service worker registered"))
+      .catch((err) => console.log("service worker not registered", err));
+  });
+}
 
 window.onLoad = loadStuff;

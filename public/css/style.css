@@ -82,8 +82,13 @@
     width: auto;
 }
 
+#MainHeading{
+    text-align: center;
+    font-size: 100px;
+    margin-top: 0.8em;
+}
+
 .mainText{
-    margin-top: 10em;
     display: flex;
     justify-content: left;
     filter: brightness(0.90);
@@ -94,13 +99,17 @@
     filter: brightness(1);
 }
 
-.fanContent {
+.fanContent, .premiumFanContent {
+    margin-top: 1em;
     display: flex;
+    position: relative;
+    text-align: center;
 }
 
 .fanImage{
-    width: 550px;
-    height: auto;
+    width:40%;
+    min-width: 40%;
+    height: 500px;
     border-style: solid;
     border-radius: 20px;
     border-color: black;
@@ -154,4 +163,59 @@
 
 #Premium{
     color: gold;
+}
+
+#Standard{
+    color: grey;
+}
+
+.premiumFanContainer {
+    display: flex;          /* Enable flexbox */
+    flex-wrap: wrap;        /* Allow wrapping to the next row */
+    justify-content: center ; /* Align items to the left */
+    gap: 20px;             /* Add spacing between items */
+    margin: 1em;           /* Optional: add margin around the container */
+}
+
+.premiumFanContent{
+    height: auto;
+    width: 300px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: black;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.PremiumFanText{
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    left: 43%;
+}
+
+.PremiumFanImage{
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: 60%;
+    animation: spin 1s linear infinite;
+    transition: 0.5s;
+    vertical-align: middle
+}
+
+.PremiumFanImage:hover{ 
+    animation-play-state: paused;
+    opacity: 20%;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
