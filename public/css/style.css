@@ -107,7 +107,7 @@
 }
 
 .fanImage{
-    width:40%;
+    width:175%;
     min-width: 40%;
     height: 500px;
     border-style: solid;
@@ -125,7 +125,7 @@
 }
 
 .fanDetail{
-    margin-left: 10%
+    margin-left: 20%
 }
 
 .mainTextH1{
@@ -148,8 +148,7 @@
 }
 
 .mainTextFanType:hover{
-    animation-play-state: paused;
-    opacity: 10%;
+    text-decoration: underline dotted;
 }
 
 .mainTextFanInfo{
@@ -167,7 +166,7 @@
 }
 
 #Standard{
-    color: grey;
+    color: rgb(86, 86, 86);
 }
 
 .premiumFanContainer {
@@ -189,11 +188,15 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: #1aada1;
-    transition: 1s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    filter: brightness(0.90);
+    transition: 0.5s;
 }
 
 .premiumFanContent:hover{
     background-color: #86e0d9;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    filter: brightness(1);
 }
 
 .premiumFanContent:hover, .PremiumFanImageMain{
@@ -206,44 +209,49 @@
 }
 
 .PremiumFanHeader{
-    font-size: 40px;
+    font-size: 30px;
     text-decoration: underline;
-    margin-top: -10px;
+    margin-top: 10px;
 }
 
 .PremiumFanType{
     font-size: 20px;
     text-decoration: underline dotted;
-    margin-top: 60px;
-    margin-left: 100px;
-    color: rgb(209, 178, 0);
+    margin-top: 90px;
+    margin-left: 200px;
 }
 
 .PremiumFanText{
-    font-size: 20px;
-    margin-top: 140px;
+    font-size: 17px;
+    margin-top: 160px;
 }
 
 .PremiumFanImage{
+    border-style: solid;
     height: 100px;
     width: auto;
+    max-width: 120px;
+    min-width: 80px;
     margin-left: -170px;
-    margin-top: 30px;
+    margin-top: 45px;
 }   
 
 .PremiumFanImageMain{
     z-index: 99;
     width:400px;
     height: 300px;
-    opacity: 60%;
-    animation: spin 5s linear infinite;
+    opacity: 0%;
     transition: 0.5s;
     vertical-align: middle
 }
 
 .PremiumFanImageMain:hover{    
-    animation-play-state: paused;
+    animation: spin 5s linear infinite;
     opacity: 20%;
+}
+
+.PremiumFanImageMain:hover::after{
+    animation-play-state: paused
 }
 
 @keyframes spin {
@@ -255,3 +263,7 @@
     }
 }
 
+#premiumLink{
+    color: inherit;
+    text-decoration: inherit;
+}
