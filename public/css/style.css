@@ -148,7 +148,8 @@
 }
 
 .mainTextFanType:hover{
-    text-decoration: underline dotted;
+    animation-play-state: paused;
+    opacity: 10%;
 }
 
 .mainTextFanInfo{
@@ -178,7 +179,7 @@
 }
 
 .premiumFanContent{
-    height: auto;
+    height: 300px;
     width: 300px;
     border-style: solid;
     border-radius: 20px;
@@ -187,26 +188,60 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #1aada1;
+    transition: 1s;
+}
+
+.premiumFanContent:hover{
+    background-color: #86e0d9;
+}
+
+.premiumFanContent:hover, .PremiumFanImageMain{
+    opacity: 90%;
+}
+
+.PremiumFanHeader, .PremiumFanType, .PremiumFanText, .PremiumFanImage{
+    z-index: 1;
+    position: absolute;
+}
+
+.PremiumFanHeader{
+    font-size: 40px;
+    text-decoration: underline;
+    margin-top: -10px;
+}
+
+.PremiumFanType{
+    font-size: 20px;
+    text-decoration: underline dotted;
+    margin-top: 60px;
+    margin-left: 100px;
+    color: rgb(209, 178, 0);
 }
 
 .PremiumFanText{
-    z-index: 1;
-    position: absolute;
-    top: 30%;
-    left: 43%;
+    font-size: 20px;
+    margin-top: 140px;
 }
 
 .PremiumFanImage{
-    z-index: 2;
-    width: 100%;
-    height: 100%;
+    height: 100px;
+    width: auto;
+    margin-left: -170px;
+    margin-top: 30px;
+}   
+
+.PremiumFanImageMain{
+    z-index: 99;
+    width:400px;
+    height: 300px;
     opacity: 60%;
-    animation: spin 1s linear infinite;
+    animation: spin 5s linear infinite;
     transition: 0.5s;
     vertical-align: middle
 }
 
-.PremiumFanImage:hover{ 
+.PremiumFanImageMain:hover{    
     animation-play-state: paused;
     opacity: 20%;
 }
@@ -219,3 +254,4 @@
         transform: rotate(360deg);
     }
 }
+

@@ -13,14 +13,13 @@ fetch("/api/fans")
 
 
 function appendData(data) {
-  // var randNum = getRandomInt(data.length);
-  var randNum = CalcRandomByDay(data.length);
+  var num = CalcRandomByDay(data.length);
 
   var newType = "";
-  if(data[randNum].type == 1){
+  if(data[num].type == 1){
     newType = "Premium";
   }
-  else if(data[randNum].type == 2){
+  else if(data[num].type == 2){
     newType = "Deformed";
   }
   else{
@@ -29,21 +28,18 @@ function appendData(data) {
 
   result += `
   <div class="fanContent">
-      <img src="${data[randNum].image}" alt="Your internet wasn't a big fan" class="fanImage">
+      <img src="${data[num].image}" alt="Your internet wasn't a big fan" class="fanImage">
       <div class="fanDetail">
-          <h1 class="mainTextH1">${data[randNum].name}</h1>
-          <p class="mainTextFanType">${data[randNum].smallInfo}</p>
+          <h1 class="mainTextH1">${data[num].name}</h1>
+          <p class="mainTextFanType">${data[num].smallInfo}</p>
           <p class="mainTextFanType" id="${newType}"=>${newType}</p>
-          <p class="mainTextFanInfo">${data[randNum].description}</p>
-          <a href="${data[randNum].link}" target="_blank">Find The Fan</a>
+          <p class="mainTextFanInfo">${data[num].description}</p>
+          <a href="${data[num].link}" target="_blank">Find The Fan</a>
       </div>
   </div>
   `;
-  document.querySelector(".mainText").innerHTML = result;
-}
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+  document.querySelector(".mainText").innerHTML = result;
 }
 
 function CalcRandomByDay(max) {

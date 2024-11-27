@@ -14,7 +14,6 @@ app.listen(5000, () =>
     "Server is running on Port 5000, visit http://localhost:5000/ or http://127.0.0.1:5000 to access your website"
   )
 );
-
 app.get('/api/fans', (req, res) =>{
     db.all('SELECT * FROM FansOnly', [], (err,rows) =>{
         // * successful Queer
