@@ -34,7 +34,7 @@ function appendData(data) {
         newType = "Premium";
         var logoLink = "../images/TEMP/FanIconTemp.png";
         
-        result +=`
+        resultArray.push(`
           <a id="premiumLink" href="${link}" target="_blank">
             <div class="premiumFanContent">
               <img class="PremiumFanImageMain" src="${logoLink}" alt="">
@@ -44,9 +44,12 @@ function appendData(data) {
               <p class="PremiumFanText">${smallInfo + " __ " + description}</p>
             </div>
           </a>
-        `
+        `)
       }
     });
+    
+    resultArray = ShuffleArray(resultArray);
+    result = resultArray.join(""); 
 
     document.querySelector(".premiumFanContainer").innerHTML = result;
   }
@@ -62,7 +65,7 @@ function appendData(data) {
         else{
           newType = "Standard";
         }
-        result +=`
+        resultArray.push(`
           <a id="premiumLink" href="${link}" target="_blank">
             <div class="premiumFanContent">
               <img class="PremiumFanImageMain" src="${logoLink}" alt="">
@@ -72,10 +75,11 @@ function appendData(data) {
               <p class="PremiumFanText">${smallInfo + " __ " + description}</p>
             </div>
           </a>
-        `
+        `)
     });
 
-    console.log(result);
+    resultArray = ShuffleArray(resultArray);
+    result = resultArray.join(""); 
 
     document.querySelector(".premiumFanContainer").innerHTML = result;
   }
@@ -121,6 +125,28 @@ function CalcRandomByDay(max) {
   const randomNumber = seed % max;
   
   return randomNumber;
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function ShuffleArray(array){
+  let arrayAmountLeft = array.length;
+  let newArray = [];
+  
+  while(arrayAmountLeft != 0) {
+    var randNum = getRandomInt(arrayAmountLeft)
+
+    const element = array[randNum];
+
+    if(!newArray.includes(element )){
+      newArray.push(array[randNum]);
+      array.splice(randNum, 1);
+      arrayAmountLeft -= 1;
+    }
+  }
+
+  return newArray;
 }
 
 if ("serviceworker" in navigator) {
