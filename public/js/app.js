@@ -157,10 +157,10 @@ document.getElementById("serviceButtonOptions").addEventListener("submit", async
   const type = document.getElementById("typeInput").value;
   const smallInfo = document.getElementById("smallInfoField").value;
   const description = document.getElementById("infoField").value;
-  const image = document.getElementById("imageInput").value;
+  const image = document.getElementById("imageInput").files[0];  // Get the file object from the input
   const link = document.getElementById("linkField").value;
 
-  if(!name ||!smallInfo ||!description ||!image ||!link){
+  if(!name || !smallInfo || !description || !image || !link){
     alert("Please fill all fields");
     return;
   }
@@ -176,22 +176,18 @@ document.getElementById("serviceButtonOptions").addEventListener("submit", async
     newType = 2;
   }
 
-  const newFan = {
-    name: name,
-    type: newType,
-    smallInfo: smallInfo,
-    description: description,
-    image: image,
-    link: link
-  };
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("type", newType);
+  formData.append("smallInfo", smallInfo);
+  formData.append("description", description);
+  formData.append("image", image);  // Append the image file to the FormData
+  formData.append("link", link);
 
   try{
     const response = await fetch("/api/fans", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newFan)
+      body: formData // Send the formData as the body
     });
 
     const result = await response.json();
@@ -201,6 +197,7 @@ document.getElementById("serviceButtonOptions").addEventListener("submit", async
     console.error("couldn't add fan", e);
   }
 });
+
 
 if ("serviceworker" in navigator) {
   window.addEventListener("load", function () {
