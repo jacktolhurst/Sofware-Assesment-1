@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<title>Premium Fans</title>
+</head>
+<body>
+    <div class="header">
+        <a href="..\index.html" id="logoHref">
+            <img src="..\images\TEMP\FanIconTemp.png" alt="Fan Logo" id="logo">
+        </a>
+        <div class="headerText" id="MILFDiv">
+            <a href="M.I.L.F.html" class="headerLink"> 
+                <p id="MILFText"></p>
+            </a>
+        </div>
+        <div class="headerText">
+            <a href="FanService.html" class="headerLink"> 
+                <p>Fan service</p>
+            </a>
+        </div>   
+        <div class="headerText">
+            <a href="PremiumFans.html" class="headerLink">            
+                <p>Premium fans</p>
+            </a>
+        </div>  
+        <div class="headerText">
+            <a href="AllFans.html" class="headerLink">            
+                <p id="allFans">All Fans
+                    <img src="..\images\TEMP\FanIconTemp.png" alt="" id="searchLogo">
+                </p>
+            </a>
+        </div>
+        <div class="headerText">
+            <a href="about.html" class="headerLink">            
+                <p>About</p>
+            </a>
+        </div>        
+    </div>
+    <h1 class="mainTextH1" id="MainHeading">Fan Service</h1>
+    <div class="premiumFanContainer" id="fanServiceMain">
+        <button id="plusButton">
+            <img src="..\images\Mains\plus.png" alt="">
+        </button>
+        <form id="serviceButtonOptions">
+            <input type="text" name="nameInput" placeholder="Name" class="inputFields" id="nameField">
+            <select name="typeInput" class="inputFields" id="typeInput">
+                <option value="Standard" id="Standard">Standard</option>
+                <option value="Premium" id="Premium">Premium</option>
+                <option value="Deformed" id="Deformed">Deformed</option>
+            </select>
+            <input type="text" name="smallInfoInput" placeholder="Small Information" class="inputFields" id="smallInfoField">
+            <input type="text" name="infoInput" placeholder="Main Information" class="inputFields" id="infoField">
+            <input type="file" name="imageInput" id="imageInput" class="inputFields" accept="image/*">
+            <label for="imageInput" id="imageInputLabel" class="inputFields">Choose a file</label>
+            <img id="imagePreview" class="inputFields" src="" alt="Your image when chosen.">
+            <input type="text" name="infoInput" placeholder="Link to Fan" class="inputFields" id="linkField">
+            <button id="enterButton" class="inputFields">
+                Enter Informtation
+            </button>
+        </form>
+    </div>
+
+
+<script src="../js/app.js"></script>
+<script src="../js/changeItems.js"></script>
+</body>
+</html>

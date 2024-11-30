@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Trigger Example</title>
+  <style>
+    /* Base styles */
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 50px auto;
+    }
+
+    /* Animation styles */
+    .animate {
+      animation: bounce 1s ease-in-out;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-50px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Center button */
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <button id="animateButton">Animate</button>
+
+  <script>
+    // JavaScript to trigger animation
+    const box = document.getElementById('box');
+    const button = document.getElementById('animateButton');
+
+    button.addEventListener('click', () => {
+      box.classList.add('animate');
+      
+      // Remove the class after the animation ends to allow re-triggering
+      box.addEventListener('animationend', () => {
+        box.classList.remove('animate');
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>

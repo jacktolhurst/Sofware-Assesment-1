@@ -1,3 +1,4 @@
+
 let result = "";
 let resultArray = [];
 
@@ -21,7 +22,7 @@ function appendData(data) {
   else if(document.URL.includes("AllFans")){
     page = "AllFans";
   }
-  else if(document.URL.includes("index")){
+  else{
     page = "index";
   }
 
@@ -148,6 +149,58 @@ function ShuffleArray(array){
 
   return newArray;
 }
+
+document.getElementById("serviceButtonOptions").addEventListener("submit", async function(event){
+  event.preventDefault();
+
+  const name = document.getElementById("nameField").value;
+  const type = document.getElementById("typeInput").value;
+  const smallInfo = document.getElementById("smallInfoField").value;
+  const description = document.getElementById("infoField").value;
+  const image = document.getElementById("imageInput").value;
+  const link = document.getElementById("linkField").value;
+
+  if(!name ||!smallInfo ||!description ||!image ||!link){
+    alert("Please fill all fields");
+    return;
+  }
+
+  var newType = 0;
+  if(type == "Standard"){
+    newType = 0;
+  }
+  if(type == "Premium"){
+    newType = 1;
+  }
+  if(type == "Deformed"){
+    newType = 2;
+  }
+
+  const newFan = {
+    name: name,
+    type: newType,
+    smallInfo: smallInfo,
+    description: description,
+    image: image,
+    link: link
+  };
+
+  try{
+    const response = await fetch("/api/fans", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newFan)
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+  }catch(e){
+    console.error("couldn't add fan", e);
+  }
+});
 
 if ("serviceworker" in navigator) {
   window.addEventListener("load", function () {

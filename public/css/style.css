@@ -107,7 +107,7 @@
 }
 
 .fanImage{
-    width:175%;
+    width:140%;
     min-width: 40%;
     height: 500px;
     border-style: solid;
@@ -125,7 +125,7 @@
 }
 
 .fanDetail{
-    margin-left: 20%
+    margin-left: 40%
 }
 
 .mainTextH1{
@@ -266,4 +266,118 @@
 #premiumLink{
     color: inherit;
     text-decoration: inherit;
+}
+
+#fanServiceMain{
+    margin-top: 100px;
+}
+
+#plusButton{
+    border-width: 0px;
+    border-radius: 2000px;
+    background-color: white;
+    transition: 0.5s ease-in;
+    cursor: pointer;
+
+}
+
+#plusButton:hover{
+    border-style: solid;
+    border-color: black;
+    border-radius: 2000px;
+    border-width: 10px;
+}
+
+
+.plusChangeColorAnimate{
+    cursor: nones;
+    animation: plusChangeColor 4s linear;
+}
+
+@keyframes plusChangeColor{
+    0%{
+        background-color: white;
+        filter: invert(0);
+        transform: rotate(0deg);
+    }
+
+    25%{
+        filter: invert(1);
+    }
+
+    50%{
+        background-color: #ED8A92;
+        transform: rotate(180deg);
+    }
+
+    75%{
+        opacity: 100%;
+    }
+
+    100%{
+        background-color: #ED8A92;
+        filter: invert(1);
+        transform: rotate(360deg);
+        opacity: 0%;
+    }
+}
+
+#serviceButtonOptions{
+    display: none;
+    flex-direction: column;  /* Stack the children vertically */
+    gap: 40px;               /* Add space between the elements */
+    align-items: flex-start; /* Align the items to the left */
+}
+
+.inputFields{
+    background-color: #1aada1d5;
+    border-radius: 4px;
+    border-style: solid;
+    height: 40px;
+    border-color: black;
+    font-size: 40px;
+    transition: 0.5s;
+}
+#nameField{
+    width: 200px;
+}
+
+#smallInfoField{
+    width: 400px;
+}
+
+#infoField{
+    width: 600px;
+}
+
+#typeInput{
+    height: 50px;
+}   
+
+#imageInput {
+    display: none;
+}
+
+#imageInputLabel {
+    display: inline-block;
+    background-color: #1aada1;
+    color: black;
+    cursor: pointer;
+}
+
+#imageInputLabel:hover, #typeInput:hover, .inputFields:hover, #enterButton:hover, #linkFeild:hover{
+    background-color: #86e0d9;
+}   
+
+#imagePreview{
+    background-color: #12756d;
+    border-color: black;
+    border-style: solid;
+    height: 200px;
+    width: 200px;
+}
+
+#enterButton{
+    height: 100px;
+    width: 400px;
 }
