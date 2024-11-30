@@ -22,6 +22,10 @@ function appendData(data) {
   else if(document.URL.includes("AllFans")){
     page = "AllFans";
   }
+  else if(document.URL.includes("M.I.L.F")){
+    page = "M.I.L.F";
+
+  }
   else{
     page = "index";
   }
@@ -84,6 +88,37 @@ function appendData(data) {
 
     document.querySelector(".premiumFanContainer").innerHTML = result;
   }
+
+  if(page == "M.I.L.F"){
+    var num = getRandomInt(data.length);
+
+    if(data[num].type == 1){
+      newType = "Premium";
+    }
+    else if(data[num].type == 2){
+      newType = "Deformed";
+    }
+    else{
+      newType = "Standard";
+    }
+
+    result += `
+    <div class="fanContent">
+        <a href="${data[num].link}" target="_blank">
+          <img src="${"../" + data[num].image}" alt="Your internet wasn't a big fan" class="fanImage">
+        </a>
+        <div class="fanDetail">
+            <h1 class="mainTextH1">${data[num].name}</h1>
+            <p class="mainTextFanType">${data[num].smallInfo}</p>
+            <p class="mainTextFanType" id="${newType}">${newType}</p>
+            <p class="mainTextFanInfo">${data[num].description}</p>
+            <a href="${data[num].link}" target="_blank">Find The Fan</a>
+        </div>
+    </div>
+    `;
+
+    document.querySelector(".mainText").innerHTML = result;
+  }
   
   if(page == "index"){
     var num = CalcRandomByDay(data.length);
@@ -115,6 +150,8 @@ function appendData(data) {
 
     document.querySelector(".mainText").innerHTML = result;
   }
+
+
 
 }
 
@@ -165,6 +202,7 @@ document.getElementById("serviceButtonOptions").addEventListener("submit", async
     return;
   }
 
+
   var newType = 0;
   if(type == "Standard"){
     newType = 0;
@@ -192,6 +230,8 @@ document.getElementById("serviceButtonOptions").addEventListener("submit", async
 
     const result = await response.json();
     console.log(result);
+    alert("Fan was successfully added");
+
 
   }catch(e){
     console.error("couldn't add fan", e);
