@@ -1,6 +1,8 @@
-
 let result = "";
 let resultArray = [];
+
+const body = document.body;
+
 
 fetch("/api/fans")
   .then(function (response) {
@@ -15,6 +17,21 @@ fetch("/api/fans")
 
 
 function appendData(data) {
+  if(localStorage.getItem("darkMode") == "true"){
+    body.style.backgroundColor = "black";
+  }
+  else{
+      body.style.backgroundColor = "white";
+  }
+
+  if(localStorage.getItem("lightText") == "true"){
+      body.style.color = "white";
+  }
+  else{
+      body.style.color = "black";
+  }
+
+
   var page = "";
   if(document.URL.includes("PremiumFans")){
     page = "PremiumFans";
@@ -237,7 +254,6 @@ document.getElementById("serviceButtonOptions").addEventListener("submit", async
     console.error("couldn't add fan", e);
   }
 });
-
 
 if ("serviceworker" in navigator) {
   window.addEventListener("load", function () {

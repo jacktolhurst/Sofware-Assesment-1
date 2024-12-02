@@ -1,7 +1,6 @@
 const toggleButton = document.getElementById("plusButton");
 const serviceContent = document.getElementById("serviceButtonOptions");
 
-
 toggleButton.addEventListener('click', () => {
     toggleButton.classList.add("plusChangeColorAnimate");
 
